@@ -1,0 +1,59 @@
+﻿<Window x:Class="WPF.Views.SettingsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SettingsView" Height="450" Width="800" Background="White">
+    <Window.Resources>
+        <!-- Определение стиля для кнопок с скругленными углами -->
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Width" Value="170" />
+            <Setter Property="Margin" Value="10,0,10,10" />
+            <Setter Property="Background" Value="#355070" />
+            <Setter Property="Foreground" Value="#f5e6e8" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Конвертер для управления видимостью -->
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <!-- Панель настроек -->
+            <StackPanel Visibility="{Binding IsSettingsMode, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Button Content="Редактировать профиль" Command="{Binding EditProfileCommand}" Margin="10,10,10,10" Background="#355070"/>
+                <Button Content="Распечатать звонки и смс" Command="{Binding PrintCallsAndSMSCommand}" Background="#355070" />
+                <Button Content="Детализация счета" Command="{Binding DetailsCommand}" Background="#355070" />
+                <Button Content="Звонок" Command="{Binding CallCommand}" Background="#355070" />
+                <Button Content="Создать SMS" Command="{Binding SMSCommand}" Background="#355070" />
+                <Button Content="Вернуться в главное меню" Command="{Binding ReturnToMainMenuCommand}" Background="#355070"/>
+            </StackPanel>
+
+            <!-- Панель для распечатки звонков и смс -->
+            <StackPanel Visibility="{Binding IsPrintMode, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <DatePicker SelectedDate="{Binding StartDate}" Margin="10,0,10,10" Height="30" Width="300" Background="White" />
+                <DatePicker SelectedDate="{Binding EndDate}" Margin="10,0,10,10" Height="30" Width="300" Background="White" />
+                <Button Content="Распечатать" Command="{Binding PrintReportCommand}" />
+                <Button Content="Назад к настройкам" Command="{Binding BackToSettingsCommand}" />
+            </StackPanel>
+
+            <!-- Панель для детализации счета -->
+            <StackPanel Visibility="{Binding IsDetailsMode, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <DatePicker SelectedDate="{Binding StartDate}" Margin="10,0,10,10" Height="30" Width="300" Background="White" />
+                <DatePicker SelectedDate="{Binding EndDate}" Margin="10,0,10,10" Height="30" Width="300" Background="White" />
+                <Button Content="Распечатать детализацию" Command="{Binding PrintDetailsReportcontCommand}" />
+                <Button Content="Назад к настройкам" Command="{Binding BackToSettingsCommand}" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

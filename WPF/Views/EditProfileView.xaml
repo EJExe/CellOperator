@@ -1,0 +1,26 @@
+﻿<Window x:Class="WPF.Views.EditProfileView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF.Views"
+        mc:Ignorable="d"
+        Icon="/WPF;component/Images/ICON.png"
+        Title="Edit Profile" Height="300" Width="400">
+    <Grid>
+        <StackPanel Margin="20">
+            
+            <TextBlock Text="Full Name" Margin="0,0,0,10"/>
+            <TextBox Text="{Binding FullName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+            
+            <TextBlock Text="Login" Margin="0,0,0,10"/>
+            <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+            
+            <TextBlock Text="Password" Margin="0,0,0,10"/>
+            <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+            
+            <Button Content="Confirm Edit" Click="OnConfirmEdit" Margin="0,0,0,10"/>
+            <Button Content="Return to Main Menu" Click="OnReturnToMainMenu"/>
+        </StackPanel>
+    </Grid>
+</Window>

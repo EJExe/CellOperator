@@ -1,0 +1,24 @@
+﻿<Window x:Class="WPF.Views.TopUpBalanceView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF.Views"
+        mc:Ignorable="d"
+        Icon="/WPF;component/Images/ICON.png"
+        Title="TOP UP BALANCE FORM" Height="343" Width="400">
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="Card Number" Margin="0,0,0,10"/>
+            <TextBox Text="{Binding CardNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+            <TextBlock Text="CVC Code" Margin="0,0,0,10"/>
+            <TextBox Text="{Binding CvcCode, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+            <TextBlock Text="Expiry Date (MM/YY)" Margin="0,0,0,10"/>
+            <TextBox Text="{Binding ExpiryDate, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+            <TextBlock Text="Amount" Margin="0,0,0,10"/>
+            <TextBox Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+            <Button Content="Confirm Top Up" Click="OnConfirmTopUp" Margin="0,0,0,10"/>
+            <Button Content="Return to Main Menu" Click="OnReturnToMainMenu"/>
+        </StackPanel>
+    </Grid>
+</Window>

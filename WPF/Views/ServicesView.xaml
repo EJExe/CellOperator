@@ -1,0 +1,89 @@
+﻿<Window x:Class="WPF.Views.ServicesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="/WPF;component/Images/ICON.png"
+        Title="Services" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Все услуги">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding AllServices}" HorizontalAlignment="Center">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="LightSlateGray" 
+                                        Margin="4" 
+                                        HorizontalAlignment="Center"
+                                        BorderThickness="2" 
+                                        Padding="10" 
+                                        Width="300"
+                                        CornerRadius="10">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <!-- Название услуги -->
+                                        <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                                        <!-- Описание услуги -->
+                                        <TextBlock Text="{Binding Description}" FontSize="12" TextWrapping="Wrap" Margin="0,0,0,10"/>
+
+                                        <!-- Стоимость подключения -->
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="Стоимость: " FontSize="12" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding CostPerMonth}" FontSize="14" VerticalAlignment="Center"/>
+                                        </StackPanel>
+
+                                        <!-- Кнопка подключения -->
+                                        <Button Content="Подключить" Command="{Binding DataContext.ConnectServiceCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" Margin="0,10,0,0"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Подключенные услуги">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding UserServices}" HorizontalAlignment="Center">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="LightSlateGray" 
+                                        Margin="4" 
+                                        HorizontalAlignment="Center"
+                                        BorderThickness="2" 
+                                        Padding="10" 
+                                        Width="300"
+                                        CornerRadius="10">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <!-- Название услуги -->
+                                        <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                                        <!-- Описание услуги -->
+                                        <TextBlock Text="{Binding Description}" FontSize="12" TextWrapping="Wrap" Margin="0,0,0,10"/>
+
+                                        <!-- Стоимость подключения -->
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="Стоимость: " FontSize="12" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding CostPerMonth}" FontSize="14" VerticalAlignment="Center"/>
+                                        </StackPanel>
+
+                                        <!-- Кнопка отключения -->
+                                        <Button Content="Отключить" Command="{Binding DataContext.DisconnectServiceCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" Margin="0,10,0,0"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+        <Button Content="Выход в главное меню" Command="{Binding ReturnToMainMenuCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+    </Grid>
+</Window>

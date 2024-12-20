@@ -1,0 +1,70 @@
+﻿<Window x:Class="WPF.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WPF" 
+        xmlns:viewmodels="clr-namespace:SystemOpMobComm.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewmodels:AuthorizationViewModel}"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Height="728" Width="500"
+        Icon="/WPF;component/Images/ICON.png"
+        Title="LOGIN FORM"  MinWidth="500" MinHeight="728">
+
+    <Grid Background="Azure">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2.00*" ></RowDefinition>
+            <RowDefinition Height="0.75*"></RowDefinition>
+            <RowDefinition Height="0.75*"></RowDefinition>
+            <RowDefinition Height="1.75*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Text="Авторизация" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="24" FontFamily="Bahnschrift Light SemiCondensed" RenderTransformOrigin="0.522,-0.119" Margin="0,0,0,25"/>
+
+        <!-- Добавляем картинку под надписью "Авторизация" -->
+        <Image Grid.Column="2" Grid.Row="0" Source="/WPF;component/Images/login.png" VerticalAlignment="Top" HorizontalAlignment="Center" Width="70" Height="70" Margin="0,71,0,0" RenderTransformOrigin="0.41,1.819"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Vertical" VerticalAlignment="Center" Margin="16,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Введите логин:" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
+            </StackPanel>
+            <TextBox FontSize="20" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" Margin="2,8,0,0" HorizontalAlignment="Left" Width="255" CaretBrush="#FF49695A" SelectionBrush="#FF49695A" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Orientation="Vertical" VerticalAlignment="Center" Margin="16,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Введите пароль:" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
+            </StackPanel>
+            <PasswordBox FontSize="20" Name ="Password" Margin="0,8,-0.4,0" Width="255" HorizontalAlignment="Left" VerticalAlignment="Center" CaretBrush="#FF49695A" SelectionBrush="#FF49695A" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3">
+            <Button Command="{Binding Enter}" CommandParameter="{Binding ElementName=Password}" HorizontalAlignment="Center" VerticalAlignment="Top" Content="Войти" Width="200" Height="30" FontSize="22" Margin="0,10,0,0" TextBlock.FontFamily="Bahnschrift Light SemiCondensed"/>
+            <TextBlock FontSize="22" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,4,0,0">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Wrong}" Value="0">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Wrong}" Value="1">
+                                <Setter Property="Text" Value="Не найден пользователь с этим логином"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Wrong}" Value="2">
+                                <Setter Property="Text" Value="Пароль введен неверно"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </StackPanel>
+
+    </Grid>
+</Window>

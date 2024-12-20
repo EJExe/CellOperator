@@ -1,0 +1,16 @@
+﻿<Window x:Class="WPF.Views.CreateSMSView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="/WPF;component/Images/ICON.png"
+        Title="Create SMS" Height="370" Width="400">
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="Номер телефона получателя:" Margin="0,0,0,10"/>
+            <TextBox Text="{Binding ReceiverPhoneNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+            <TextBlock Text="Текст сообщения:" Margin="0,0,0,10"/>
+            <TextBox Text="{Binding MessageText, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" Height="100" Margin="0,0,0,10"/>
+            <Button Content="Отправить" Command="{Binding SendSMSCommand}" Margin="0,0,0,10"/>
+            <Button Content="Отмена" Command="{Binding CancelCommand}" Margin="0,0,0,10"/>
+        </StackPanel>
+    </Grid>
+</Window>

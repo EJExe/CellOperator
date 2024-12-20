@@ -1,0 +1,17 @@
+﻿<Window x:Class="WPF.Views.CallView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="/WPF;component/Images/ICON.png"
+        Title="Call" Height="300" Width="400">
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="Номер телефона получателя:" Margin="0,0,0,10"/>
+            <TextBox Text="{Binding ReceiverPhoneNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+            <TextBlock Text="Тип звонка:" Margin="0,0,0,10"/>
+            <ComboBox ItemsSource="{Binding CallTypes}" SelectedItem="{Binding SelectedCallType}" DisplayMemberPath="Name" Margin="0,0,0,10"/>
+            <Button Content="Начать звонок" Command="{Binding StartCallCommand}" Margin="0,0,0,10"/>
+            <Button Content="Завершить звонок" Command="{Binding EndCallCommand}" Margin="0,0,0,10"/>
+            <Button Content="Выход в меню настроек" Command="{Binding ExitToSettingsCommand}" Margin="0,20,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

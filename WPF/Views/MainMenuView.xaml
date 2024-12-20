@@ -1,0 +1,136 @@
+﻿<Window x:Class="WPF.Views.MainMenuView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="/WPF;component/Images/ICON.png"
+        Title="MAINMENU FORM" Height="462" Width="686" MinWidth="686" MinHeight="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Верхняя часть: Имя и номер телефона -->
+        <Border Grid.Row="0" Background="LightGray" CornerRadius="10" Margin="10" Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Текст "ФИО:" -->
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="ФИО:" FontFamily="Bahnschrift Light SemiCondensed" FontSize="14" VerticalAlignment="Center" Width="300"/>
+                <!-- Текст "Номер телефона:" -->
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="Номер телефона:" FontSize="14" FontFamily="Bahnschrift Light SemiCondensed" VerticalAlignment="Center" Width="300"/>
+
+                <!-- Данные пользователя -->
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding CurrentUser.Name}" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding CurrentUser.PhoneNumber}" FontSize="14" VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                <!-- Картинка -->
+                <Image Grid.RowSpan="2" Grid.Column="0" Source="/WPF;component/Images/acc32.png" Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,30,0"/>
+            </Grid>
+        </Border>
+
+        <!-- Середина экрана: Остаток минут, интернета, смс -->
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Остаток минут -->
+            <Border Grid.Column="0" Background="LightGray" CornerRadius="15" Padding="30" Margin="10,0,10,0" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Background="White" CornerRadius="10" Padding="5" Margin="-20,-30,10,30" Height="25">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Остаток Минут" FontFamily="Bahnschrift Light SemiCondensed" FontSize="14"/>
+                        </StackPanel>
+                    </Border>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-50,0,0,0">
+                        <TextBlock Text="{Binding CurrentUser.Mins}" FontSize="22" FontWeight="Bold"/>
+                    </StackPanel>
+                    <Image Grid.Column="1" Source="/WPF;component/Images/MIN.png" Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,-20,0"/>
+                </Grid>
+            </Border>
+
+            <!-- Остаток интернета -->
+            <Border Grid.Column="1" Background="LightGray" CornerRadius="15" Padding="30" Margin="10,0,10,0" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Background="White" CornerRadius="10" Padding="5" Margin="-20,-30,10,30" Height="25">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Остаток ГБ" FontFamily="Bahnschrift Light SemiCondensed" FontSize="14"/>
+                        </StackPanel>
+                    </Border>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-50,0,0,0">
+                        <TextBlock Text="{Binding CurrentUser.GB}" FontSize="22" FontWeight="Bold"/>
+                    </StackPanel>
+                    <Image Grid.Column="1" Source="/WPF;component/Images/GB.png" Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,-20,0"/>
+                </Grid>
+            </Border>
+
+            <!-- Остаток смс -->
+            <Border Grid.Column="2" Background="LightGray" CornerRadius="15" Padding="30" Margin="10,0,10,0" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Background="White" CornerRadius="10" Padding="5" Margin="-20,-30,10,30" Height="25">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Остаток СМС" FontFamily="Bahnschrift Light SemiCondensed" FontSize="14"/>
+                        </StackPanel>
+                    </Border>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-50,0,0,0">
+                        <TextBlock Text="{Binding CurrentUser.SMS}" FontSize="22" FontWeight="Bold"/>
+                    </StackPanel>
+                    <Image Grid.Column="1" Source="/WPF;component/Images/SMS.png" Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,-20,0"/>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- Баланс -->
+        <Border Grid.Row="2" Background="LightGray" CornerRadius="15" Margin="10,0,10,20" Padding="25"  VerticalAlignment="Center">
+            <Grid>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="БАЛАНС:" FontFamily="Bahnschrift Light SemiCondensed" FontSize="14" HorizontalAlignment="Center" Margin="5,0,0,0" />
+                    <TextBlock Text="{Binding CurrentUser.Balance}" FontSize="34" FontWeight="Bold" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Image Source="/WPF;component/Images/Money30.png" Width="65" Height="65" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="170,0,0,0"/>
+            </Grid>
+        </Border>
+
+        <!-- Кнопки: Пополнить баланс, Сменить тариф, Настройки, Подключение услуг -->
+        <Border Grid.Row="3" Background="LightGray" CornerRadius="10" Margin="10,15,10,0" Padding="3" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Пополнить Баланс" Command="{Binding TopUpBalanceCommand}" Margin="10" Width="120" BorderBrush="LightGray" Foreground="DimGray" Background="LightGray"/>
+                <Button Content="Сменить Тариф" Command="{Binding ChangeTariffCommand}" Margin="10" Width="120" BorderBrush="LightGray" Foreground="DimGray" Background="LightGray"/>
+                <Button Content="Услуги" Command="{Binding ConnectServicesCommand}" Margin="10" Width="120" BorderBrush="LightGray" Foreground="DimGray" Background="LightGray"/>
+                <Button Content="Настройки" Command="{Binding OpenSettingsCommand}" Margin="10" Width="120" BorderBrush="LightGray" Foreground="DimGray" Background="LightGray"/>
+                
+            </StackPanel>
+        </Border>
+
+        <!-- Кнопка Logout -->
+        <Grid Grid.Row="4">
+            <Button Grid.Row="4" Content="Выйти" Command="{Binding LogoutCommand}" Margin="10" Width="120" HorizontalAlignment="Center" Background="White" BorderBrush="White" Foreground="DimGray" VerticalAlignment="Bottom"/>
+            <Image Grid.Column="1" Source="/WPF;component/Images/exit.png" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="370,0,10,0"/>
+        </Grid>
+    </Grid>
+</Window>
