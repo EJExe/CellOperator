@@ -130,7 +130,10 @@ namespace WPF.ViewModels
         private void ViewAllBalanceHistory()
         {
             // Получаем все записи из BalanceCounterHistoryTable
-            dbAccess.GenerateBalanceHistoryReport();
+            var allBalanceHistory = dbAccess.GetAllBalanceHistory(); // Предполагается, что у вас есть метод для получения всех записей
+            BalanceHistory = new ObservableCollection<BalanceHistoryTable>(allBalanceHistory);
+
+            // Устанавливаем видимость таблицы
             ButtonsVisibility = Visibility.Collapsed;
             TableVisibility = Visibility.Visible;
         }

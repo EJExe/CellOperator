@@ -2,33 +2,33 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Icon="/WPF;component/Images/ICON.png"
-        Title="User Management" Height="450" Width="800">
+        Title="USER MANAGMENT" Height="450" Width="800">
     <Grid>
         <ListView ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Phone Number" DisplayMemberBinding="{Binding PhoneNumber}"/>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Balance" DisplayMemberBinding="{Binding Balance}"/>
-                    <GridViewColumn Header="Tariff Name" DisplayMemberBinding="{Binding TariffName}"/>
+                    <GridViewColumn Header="Номер" DisplayMemberBinding="{Binding PhoneNumber}"/>
+                    <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Баланс" DisplayMemberBinding="{Binding Balance}"/>
+                    <GridViewColumn Header="Тариф" DisplayMemberBinding="{Binding TariffName}"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Confirm Changes" Command="{Binding ConfirmChangesCommand}" Margin="10" Width="120" Height="35"/>
-            <Button Content="Add User" Command="{Binding AddUserCommand}" Margin="10" Width="100" Height="35"/>
-            <Button Content="Delete User" Command="{Binding DeleteUserCommand}" Margin="10" Width="100" Height="35"/>
-            <Button Content="Exit" Command="{Binding ExitCommand}" Margin="10" Width="100" Height="35"/>
+            <Button Content="Подтвердить" Command="{Binding ConfirmChangesCommand}" Margin="10" Width="120" Height="35" Background="#007BFF"/>
+            <Button Content="Добавить" Command="{Binding AddUserCommand}" Margin="10" Width="100" Height="35"/>
+            <Button Content="Удалить" Command="{Binding DeleteUserCommand}" Margin="10" Width="100" Height="35"/>
+            <Button Content="Выход" Command="{Binding ExitCommand}" Margin="10" Width="100" Height="35"/>
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom" Orientation="Vertical" HorizontalAlignment="Right" Margin="0,0,20,150">
             <TextBlock Text="Edit Selected User" FontSize="16" Margin="0,0,10,10"/>
-            <TextBlock Text="Name"/>
+            <TextBlock Text="ФИО"/>
             <TextBox Text="{Binding SelectedUser.Name, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Phone Number"/>
-            <TextBox Text="{Binding SelectedUser.PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Balance"/>
+            <TextBlock Text="Номер"/>
+            <TextBox Text="{Binding SelectedUser.PhoneNumber}" IsReadOnly="True"/>
+            <TextBlock Text="Баланс"/>
             <TextBox Text="{Binding SelectedUser.Balance, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Tariff Name"/>
+            <TextBlock Text="Тариф"/>
             <TextBox Text="{Binding SelectedUser.TariffName, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
     </Grid>

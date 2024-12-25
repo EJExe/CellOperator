@@ -3,22 +3,53 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPF.Views"
         mc:Ignorable="d"
         Icon="/WPF;component/Images/ICON.png"
-        Title="TOP UP BALANCE FORM" Height="343" Width="400">
-    <Grid>
-        <StackPanel Margin="20">
-            <TextBlock Text="Card Number" Margin="0,0,0,10"/>
-            <TextBox Text="{Binding CardNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
-            <TextBlock Text="CVC Code" Margin="0,0,0,10"/>
-            <TextBox Text="{Binding CvcCode, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
-            <TextBlock Text="Expiry Date (MM/YY)" Margin="0,0,0,10"/>
-            <TextBox Text="{Binding ExpiryDate, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
-            <TextBlock Text="Amount" Margin="0,0,0,10"/>
-            <TextBox Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
-            <Button Content="Confirm Top Up" Click="OnConfirmTopUp" Margin="0,0,0,10"/>
-            <Button Content="Return to Main Menu" Click="OnReturnToMainMenu"/>
-        </StackPanel>
+        Title="Top Up Balance"
+        Height="500" Width="450"
+        WindowStartupLocation="CenterScreen"
+        Background="#F7F7F7">
+    <Grid Margin="10">
+        <Border Background="White" CornerRadius="10" Padding="20" BorderBrush="#E0E0E0" BorderThickness="1" Margin="0,0,0,-57">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Пополнение баланса" FontSize="18" FontWeight="Bold" Foreground="#333" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+                <!-- Card Number -->
+                <TextBlock Text="Номер Карты" FontWeight="Bold" Foreground="#555" Margin="0,0,0,5"/>
+                <TextBox Text="{Binding CardNumber, UpdateSourceTrigger=PropertyChanged}" 
+                         Height="30" Margin="0,0,0,15" BorderBrush="#CCCCCC" BorderThickness="1" Padding="5"/>
+
+                <!-- CVC Code -->
+                <TextBlock Text="CVC Код" FontWeight="Bold" Foreground="#555" Margin="0,0,0,5"/>
+                <TextBox Text="{Binding CvcCode, UpdateSourceTrigger=PropertyChanged}" 
+                         Height="30" Margin="0,0,0,15" BorderBrush="#CCCCCC" BorderThickness="1" Padding="5"/>
+
+                <!-- Expiry Date -->
+                <TextBlock Text="Дата (MM/YY)" FontWeight="Bold" Foreground="#555" Margin="0,0,0,5"/>
+                <TextBox Text="{Binding ExpiryDate, UpdateSourceTrigger=PropertyChanged}" 
+                         Height="30" Margin="0,0,0,15" BorderBrush="#CCCCCC" BorderThickness="1" Padding="5"/>
+
+                <!-- Amount -->
+                <TextBlock Text="Количество" FontWeight="Bold" Foreground="#555" Margin="0,0,0,5"/>
+                <TextBox Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}" 
+                         Height="30" Margin="0,0,0,15" BorderBrush="#CCCCCC" BorderThickness="1" Padding="5"/>
+
+                <!-- Buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <!-- Confirm Button -->
+                    <Button Content="Подтвердить" Width="150" Height="40"
+                            Background="#007BFF" Foreground="White" BorderBrush="#0056b3" 
+                            FontWeight="Bold" Margin="5,0" Click="OnConfirmTopUp" />
+
+                    <!-- Return Button -->
+                    <Button Content="Вернуться в Меню" Width="150" Height="40"
+                            Background="#E0E0E0" Foreground="#333" BorderBrush="#CCCCCC" 
+                            FontWeight="Bold" Margin="5,0" Click="OnReturnToMainMenu" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
