@@ -1,17 +1,51 @@
 ﻿<Window x:Class="WPF.Views.CallView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
         Icon="/WPF;component/Images/ICON.png"
-        Title="Call" Height="300" Width="400">
-    <Grid>
-        <StackPanel Margin="20">
-            <TextBlock Text="Номер телефона получателя:" Margin="0,0,0,10"/>
-            <TextBox Text="{Binding ReceiverPhoneNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
-            <TextBlock Text="Тип звонка:" Margin="0,0,0,10"/>
-            <ComboBox ItemsSource="{Binding CallTypes}" SelectedItem="{Binding SelectedCallType}" DisplayMemberPath="Name" Margin="0,0,0,10"/>
-            <Button Content="Начать звонок" Command="{Binding StartCallCommand}" Margin="0,0,0,10"/>
-            <Button Content="Завершить звонок" Command="{Binding EndCallCommand}" Margin="0,0,0,10"/>
-            <Button Content="Выход в меню настроек" Command="{Binding ExitToSettingsCommand}" Margin="0,20,0,0"/>
-        </StackPanel>
+        Title="Звонок"
+        Height="400" Width="450"
+        WindowStartupLocation="CenterScreen"
+        Background="#F7F7F7">
+    <Grid Margin="10">
+        <Border Background="White" CornerRadius="10" Padding="20" BorderBrush="#E0E0E0" BorderThickness="1">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Звонок" FontSize="18" FontWeight="Bold" Foreground="#333" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+                <!-- Receiver Phone Number -->
+                <TextBlock Text="Номер телефона получателя:" FontWeight="Bold" Foreground="#555" Margin="0,0,0,5"/>
+                <TextBox Text="{Binding ReceiverPhoneNumber, UpdateSourceTrigger=PropertyChanged}" 
+                         Height="30" Margin="0,0,0,15" BorderBrush="#CCCCCC" BorderThickness="1" Padding="5"/>
+
+                <!-- Call Type -->
+                <TextBlock Text="Тип звонка:" FontWeight="Bold" Foreground="#555" Margin="0,0,0,5"/>
+                <ComboBox ItemsSource="{Binding CallTypes}" SelectedItem="{Binding SelectedCallType}" 
+                          DisplayMemberPath="Name" Height="30" Margin="0,0,0,15" BorderBrush="#CCCCCC" BorderThickness="1" Padding="5"/>
+
+                <!-- Buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <!-- Start Call Button -->
+                    <Button Content="Начать звонок" Width="150" Height="40"
+                            Background="#007BFF" Foreground="White" BorderBrush="#0056b3" 
+                            FontWeight="Bold" Margin="5,0" Command="{Binding StartCallCommand}" />
+
+                    <!-- End Call Button -->
+                    <Button Content="Завершить звонок" Width="150" Height="40"
+                            Background="#E0E0E0" Foreground="#333" BorderBrush="#CCCCCC" 
+                            FontWeight="Bold" Margin="5,0" Command="{Binding EndCallCommand}" />
+                </StackPanel>
+
+                <!-- Exit to Settings Button -->
+                <Button Content="Выход в меню настроек" Width="200" Height="40"
+                        Background="#E0E0E0" Foreground="#333" BorderBrush="#CCCCCC" 
+                        FontWeight="Bold" Margin="0,20,0,0" Command="{Binding ExitToSettingsCommand}" 
+                        HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

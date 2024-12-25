@@ -47,11 +47,11 @@ namespace WPF.ViewModels
             {
                 // Логика сохранения изменений
                 dbAccess.UpdateTariff(SelectedTariff);
-                MessageBox.Show("Changes confirmed!");
+                MessageBox.Show("Изменения Применены!");
             }
             else
             {
-                MessageBox.Show("No tariff selected!");
+                MessageBox.Show("Не выбран Тариф!");
             }
         }
 
@@ -68,7 +68,7 @@ namespace WPF.ViewModels
             };
             dbAccess.AddTariff(newTariff);
             Tariffs.Add(newTariff);
-            MessageBox.Show("New tariff added!");
+            MessageBox.Show("Новый тариф добавлен!");
         }
 
         private void DeleteTariff()
@@ -78,11 +78,11 @@ namespace WPF.ViewModels
                 // Логика удаления выбранного тарифа
                 dbAccess.DeleteTariff(SelectedTariff.Id);
                 Tariffs.Remove(SelectedTariff);
-                MessageBox.Show("Tariff deleted!");
+                MessageBox.Show("Тариф Удален");
             }
             else
             {
-                MessageBox.Show("No tariff selected!");
+                MessageBox.Show("Тариф не выбран!");
             }
         }
 

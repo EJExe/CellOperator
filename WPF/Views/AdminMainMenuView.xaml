@@ -1,9 +1,16 @@
 ﻿<Window x:Class="WPF.Views.AdminMainMenuView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="AdminMainMenuView" Height="450" Width="800">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Административное меню"
+        Height="500" Width="800"
+        MinWidth="300" MinHeight="600"
+        WindowStartupLocation="CenterScreen"
+        Background="#F7F7F7">
     <Window.Resources>
-        <!-- Определение стиля для кнопок -->
+        <!-- Стиль для кнопок -->
         <Style TargetType="Button">
             <Setter Property="Background" Value="#355070"/>
             <Setter Property="Foreground" Value="White"/>
@@ -18,7 +25,10 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border CornerRadius="10" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -27,42 +37,88 @@
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         </Style>
+
+        <!-- Конвертер для управления видимостью -->
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Window.Resources>
 
     <Grid>
-        <!-- Кнопки для управления -->
-        <StackPanel x:Name="ButtonsPanel" Orientation="Vertical" Visibility="{Binding ButtonsVisibility}">
-            <Button Content="Список пользователей" Command="{Binding OpenUsersCommand}" Margin="10,40,10,10" />
-            <Button Content="Список тарифов" Command="{Binding OpenTariffsCommand}" />
-            <Button Content="Список списаний" Command="{Binding ShowBalanceManagementCommand}" />
-            <Button Content="Списать деньги" Command="{Binding DeductBalanceCommand}"/>
-            <Button Content="Выход" Command="{Binding LogoutCommand}" Margin="10,50,10,10"/>
-        </StackPanel>
+        <!-- Прямоугольник с закругленными краями и отступами -->
+        <Border Background="White"
+                CornerRadius="10"
+                BorderBrush="#E0E0E0"
+                BorderThickness="1"
+                Margin="10"
+                Padding="20">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="0.3"/>
+            </Border.Effect>
 
-        <!-- Кнопки для управления списаниями -->
-        <StackPanel Visibility="{Binding ShowBalanceManagementButtons, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <Button Content="Показать список всех списаний" Command="{Binding ViewAllBalanceHistoryCommand}" />
-            <ComboBox x:Name="PhoneNumberComboBox"
-                      ItemsSource="{Binding PhoneNumbers}"
-                      SelectedItem="{Binding SelectedPhoneNumber}"
-                      DisplayMemberPath="PhoneNumber"
-                      Margin="10"
-                      VerticalAlignment="Center" />
-            <Button Content="Показать списания для выбранного пользователя" Command="{Binding ViewUserBalanceHistoryCommand}" />
-            <Button Content="Вернуться к меню" Command="{Binding ReturnToMenuCommand}" />
-        </StackPanel>
+            <!-- Основное содержимое -->
+            <Grid>
+                <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top"
+                            Margin="10">
+                    <Image Source="/WPF;component/Images/acc32.png" 
+                           Width="32" 
+                           Height="32" 
+                           Margin="0,0,10,0"/>
+                    <TextBlock Text="Оператор" 
+                               VerticalAlignment="Center" 
+                               FontSize="16" 
+                               FontWeight="Bold"/>
+                </StackPanel>
+                <!-- Основное меню -->
+                <StackPanel x:Name="ButtonsPanel" 
+                            Orientation="Vertical" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"
+                            Visibility="{Binding ButtonsVisibility}">
+                    <Button Content="Список пользователей" Command="{Binding OpenUsersCommand}" Margin="10,40,10,10" />
+                    <Button Content="Список тарифов" Command="{Binding OpenTariffsCommand}" />
+                    <Button Content="Список списаний" Command="{Binding ShowBalanceManagementCommand}" />
+                    <Button Content="Списать деньги" Command="{Binding DeductBalanceCommand}" />
+                    <Button Content="Выход" Command="{Binding LogoutCommand}" Margin="10,50,10,10" />
+                </StackPanel>
 
-        <!-- Таблица для отображения данных -->
-        <DataGrid x:Name="BalanceHistoryGrid" 
-                  ItemsSource="{Binding BalanceHistory}" 
-                  Visibility="{Binding TableVisibility}" 
-                  AutoGenerateColumns="True" />
+                <!-- Меню управления списаниями -->
+                <StackPanel HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"
+                            Visibility="{Binding ShowBalanceManagementButtons, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <Button Content="Показать список всех списаний" Command="{Binding ViewAllBalanceHistoryCommand}" />
+                    <ComboBox x:Name="PhoneNumberComboBox"
+                              ItemsSource="{Binding PhoneNumbers}"
+                              SelectedItem="{Binding SelectedPhoneNumber}"
+                              DisplayMemberPath="PhoneNumber"
+                              Margin="10"
+                              Width="300"
+                              Height="40"
+                              VerticalAlignment="Center" />
+                    <Button Content="Показать списания для выбранного пользователя" Command="{Binding ViewUserBalanceHistoryCommand}" />
+                    <Button Content="Вернуться к меню" Command="{Binding ReturnToMenuCommand}" />
+                </StackPanel>
 
-        <!-- Кнопка для возврата -->
-        <Button Content="Вернуться к меню" 
-                Command="{Binding ReturnToMenuCommand}" 
-                HorizontalAlignment="Center" 
-                VerticalAlignment="Bottom" 
-                Visibility="{Binding TableVisibility}" />
+                <!-- Таблица для отображения данных -->
+                <DataGrid x:Name="BalanceHistoryGrid" 
+                          ItemsSource="{Binding BalanceHistory}" 
+                          Visibility="{Binding TableVisibility}" 
+                          AutoGenerateColumns="True"
+                          Margin="0"
+                          Background="White"
+                          BorderBrush="#E0E0E0"
+                          BorderThickness="1"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch" />
+
+                <!-- Кнопка для возврата -->
+                <Button Content="Вернуться к меню" 
+                        Command="{Binding ReturnToMenuCommand}" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Bottom" 
+                        Margin="0,0,0,20"
+                        Visibility="{Binding TableVisibility}" />
+            </Grid>
+        </Border>
     </Grid>
 </Window>

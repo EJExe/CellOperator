@@ -516,6 +516,35 @@ namespace WPF.Models
             }
         }
 
+        public void UpdateUserSMS(string oldPhoneNumber, int? SMS)
+        {
+            BdContext DB = setDB();
+            UserTable user = DB.UserTable.FirstOrDefault(u => u.C__PK___Number_Of_Phone == oldPhoneNumber);
+            if (user != null)
+            {
+                // Присоединяем существующий объект к контексту данных
+                DB.UserTable.Attach(user);
+                user.SMS_Left = SMS;
+
+                DB.SaveChanges();
+            }
+        }
+
+        public void UpdateUserMins(string oldPhoneNumber, int? Mins,int? bal)
+        {
+            BdContext DB = setDB();
+            UserTable user = DB.UserTable.FirstOrDefault(u => u.C__PK___Number_Of_Phone == oldPhoneNumber);
+            if (user != null)
+            {
+                // Присоединяем существующий объект к контексту данных
+                DB.UserTable.Attach(user);
+                user.Minuts_Left = Mins;
+                user.Money_On_Bank = bal;
+
+                DB.SaveChanges();
+            }
+        }
+
         public void UpdateTariff(TarifClass tariff)
         {
             BdContext DB = setDB();

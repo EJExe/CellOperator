@@ -7,6 +7,7 @@ namespace WPF.ViewModels
 {
     public class TopUpBalanceViewModel : INotifyPropertyChanged
     {
+
         private UserClass currentUser;
         private DBAccess dbAccess;
 
@@ -21,17 +22,19 @@ namespace WPF.ViewModels
             dbAccess = new DBAccess();
         }
 
+        
+
         public void ConfirmTopUp()
         {
             // Логика пополнения баланса
             if (ValidateCardDetails())
             {
                 dbAccess.UpdateUserBalance(currentUser.PhoneNumber, Amount);
-                MessageBox.Show("Balance topped up successfully!");
+                MessageBox.Show("Баланс Пополнен!");
             }
             else
             {
-                MessageBox.Show("Invalid card details!");
+                MessageBox.Show("Не корректные данные!");
             }
         }
 

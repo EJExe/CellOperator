@@ -11,20 +11,12 @@
       "RelativeMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|solutionrelative:wpf\\views\\adminmainmenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\wpf\\views\\tariffmanagementview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|solutionrelative:wpf\\views\\tariffmanagementview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|c:\\users\\mrlas\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u043A\u0443\u0440\u0441\\\u043C\u043E\u0447\u0430\u043B\u043E\u0432\\wpf\\wpf\\views\\mainmenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|solutionrelative:wpf\\views\\mainmenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|c:\\users\\mrlas\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u043A\u0443\u0440\u0441\\\u043C\u043E\u0447\u0430\u043B\u043E\u0432\\wpf\\wpf\\views\\usermanagementview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|solutionrelative:wpf\\views\\usermanagementview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|c:\\users\\mrlas\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u043A\u0443\u0440\u0441\\\u043C\u043E\u0447\u0430\u043B\u043E\u0432\\wpf\\wpf\\views\\tarifmenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|solutionrelative:wpf\\views\\tarifmenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|c:\\users\\mrlas\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u043A\u0443\u0440\u0441\\\u043C\u043E\u0447\u0430\u043B\u043E\u0432\\wpf\\wpf\\views\\topupbalanceview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|solutionrelative:wpf\\views\\topupbalanceview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\wpf\\models\\dbaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B36BF86-1A81-41CE-97C2-092D923D9DCA}|WPF\\WPF.csproj|solutionrelative:wpf\\models\\dbaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -44,9 +36,21 @@
               "RelativeDocumentMoniker": "WPF\\ViewModels\\AdminMainMenuViewModel.cs",
               "ToolTip": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\ViewModels\\AdminMainMenuViewModel.cs",
               "RelativeToolTip": "WPF\\ViewModels\\AdminMainMenuViewModel.cs",
-              "ViewState": "AQIAAHoAAAAAAAAAAADwv4kAAAAxAAAA",
+              "ViewState": "AQIAAMQAAAAAAAAAAAAAAMQAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T20:59:37.808Z",
+              "WhenOpened": "2024-12-25T17:53:36.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainMenuView.xaml",
+              "DocumentMoniker": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Views\\MainMenuView.xaml",
+              "RelativeDocumentMoniker": "WPF\\Views\\MainMenuView.xaml",
+              "ToolTip": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Views\\MainMenuView.xaml",
+              "RelativeToolTip": "WPF\\Views\\MainMenuView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-25T17:47:48.597Z",
               "EditorCaption": ""
             },
             {
@@ -58,55 +62,20 @@
               "ToolTip": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Views\\AdminMainMenuView.xaml",
               "RelativeToolTip": "WPF\\Views\\AdminMainMenuView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-24T20:53:11.636Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TariffManagementView.xaml",
-              "DocumentMoniker": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Views\\TariffManagementView.xaml",
-              "RelativeDocumentMoniker": "WPF\\Views\\TariffManagementView.xaml",
-              "ToolTip": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Views\\TariffManagementView.xaml",
-              "RelativeToolTip": "WPF\\Views\\TariffManagementView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-16T20:20:14.962Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TarifMenuView.xaml",
-              "DocumentMoniker": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Views\\TarifMenuView.xaml",
-              "RelativeDocumentMoniker": "WPF\\Views\\TarifMenuView.xaml",
-              "ToolTip": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Views\\TarifMenuView.xaml",
-              "RelativeToolTip": "WPF\\Views\\TarifMenuView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-24T20:44:16.923Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TopUpBalanceView.xaml",
-              "DocumentMoniker": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Views\\TopUpBalanceView.xaml",
-              "RelativeDocumentMoniker": "WPF\\Views\\TopUpBalanceView.xaml",
-              "ToolTip": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Views\\TopUpBalanceView.xaml",
-              "RelativeToolTip": "WPF\\Views\\TopUpBalanceView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-24T20:31:41.497Z",
+              "WhenOpened": "2024-12-25T17:47:35.471Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UserManagementView.xaml",
-              "DocumentMoniker": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Views\\UserManagementView.xaml",
-              "RelativeDocumentMoniker": "WPF\\Views\\UserManagementView.xaml",
-              "ToolTip": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Views\\UserManagementView.xaml",
-              "RelativeToolTip": "WPF\\Views\\UserManagementView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-24T20:22:13.558Z",
+              "Title": "DBAccess.cs",
+              "DocumentMoniker": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Models\\DBAccess.cs",
+              "RelativeDocumentMoniker": "WPF\\Models\\DBAccess.cs",
+              "ToolTip": "C:\\Users\\mrlas\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\3\u041A\u0423\u0420\u0421\\\u041C\u043E\u0447\u0430\u043B\u043E\u0432\\WPF\\WPF\\Models\\DBAccess.cs",
+              "RelativeToolTip": "WPF\\Models\\DBAccess.cs",
+              "ViewState": "AQIAAPsBAAAAAAAAAAAiwBQCAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T16:37:27.681Z",
               "EditorCaption": ""
             }
           ]

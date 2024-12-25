@@ -52,11 +52,11 @@ namespace WPF.ViewModels
             {
                 // Логика сохранения изменений
                 dbAccess.UpdateUserProfile(SelectedUser.PhoneNumber, SelectedUser.Name, SelectedUser.Loging, SelectedUser.Password);
-                MessageBox.Show("Changes confirmed!");
+                MessageBox.Show("Изменения применены!");
             }
             else
             {
-                MessageBox.Show("No user selected!");
+                MessageBox.Show("Не выбран пользователь!");
             }
         }
 
@@ -76,12 +76,12 @@ namespace WPF.ViewModels
 
                 dbAccess.AddUser(newUser);
                 Users.Add(newUser);
-                MessageBox.Show("New user added!");
+                MessageBox.Show("Пользователь добавлен!");
                 Debug.WriteLine("New user added.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error adding user: {ex.Message}");
+                MessageBox.Show($"Ошибка добавления пользователя: {ex.Message}");
                 Debug.WriteLine($"Error adding user: {ex.Message}");
             }
         }
@@ -93,11 +93,11 @@ namespace WPF.ViewModels
                 // Логика удаления выбранного пользователя
                 dbAccess.DeleteUser(SelectedUser.PhoneNumber);
                 Users.Remove(SelectedUser);
-                MessageBox.Show("User deleted!");
+                MessageBox.Show("Пользователь удален!");
             }
             else
             {
-                MessageBox.Show("No user selected!");
+                MessageBox.Show("Пользователь не выбран!");
             }
         }
 
@@ -110,11 +110,11 @@ namespace WPF.ViewModels
                 int amount = 100; // Пример суммы пополнения
                 dbAccess.UpdateUserBalance(phoneNumber, amount);
                 SelectedUser.Balance += amount;
-                MessageBox.Show("Balance topped up!");
+                MessageBox.Show("Баланс пополнен!");
             }
             else
             {
-                MessageBox.Show("No user selected!");
+                MessageBox.Show("Не выбран пользователь!");
             }
         }
 

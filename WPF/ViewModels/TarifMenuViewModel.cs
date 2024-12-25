@@ -28,11 +28,11 @@ namespace WPF.ViewModels
 
         public void ChangeTariff(TarifClass selectedTariff)
         {
-            MessageBoxResult result = MessageBox.Show($"Do you want to change your tariff to {selectedTariff.Name}?", "Confirmation", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show($"Хотите изменить свой тариф на  {selectedTariff.Name}?", "Подтверждение", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
                 dbAccess.UpdateUserTariff(currentUser.PhoneNumber, selectedTariff.Id);
-                MessageBox.Show("Tariff changed successfully!");
+                MessageBox.Show("Тариф изменен!");
 
                 // Обновляем текущего пользователя
                 currentUser.IDTarif = selectedTariff.Id;

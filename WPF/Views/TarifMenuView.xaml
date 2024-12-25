@@ -3,13 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:WPF.ViewModels"
-        xmlns:local="clr-namespace:WPF.Views"
         mc:Ignorable="d"
         Icon="/WPF;component/Images/ICON.png"
-        Title="WindowNotMain" Height="450" Width="800">
-
+        Title="Меню тарифов"
+        Height="500" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#F7F7F7">
     <Grid>
+        <!-- Основной контейнер с прокруткой -->
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Tariffs}" HorizontalAlignment="Center">
                 <ItemsControl.ItemsPanel>
@@ -19,56 +20,61 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border BorderBrush="LightSlateGray" 
-                                Margin="4" 
+                        <!-- Карточка тарифа -->
+                        <Border BorderBrush="#E0E0E0" 
+                                Margin="10" 
                                 HorizontalAlignment="Center"
-                                BorderThickness="2" 
-                                Padding="10" 
+                                BorderThickness="1" 
+                                Padding="15" 
                                 Width="300"
                                 CornerRadius="10"
+                                Background="White"
                                 MouseLeftButtonUp="OnTariffSelected">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="3" BlurRadius="10" Opacity="0.3"/>
+                            </Border.Effect>
                             <StackPanel HorizontalAlignment="Center">
                                 <!-- Название тарифа -->
-                                <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                                <TextBlock Text="{Binding Name}" FontSize="18" FontWeight="Bold" Foreground="#333" Margin="0,0,0,10" HorizontalAlignment="Center"/>
 
-                                <!-- PricePerMonth -->
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <TextBlock Text="Руб/Месяц: " FontSize="12" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding PricePerMonth}" FontSize="14" VerticalAlignment="Center"/>
+                                <!-- Цена за месяц -->
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                                    <TextBlock Text="Руб/Месяц: " FontSize="14" Foreground="#555" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding PricePerMonth}" FontSize="16" Foreground="#333" VerticalAlignment="Center"/>
                                 </StackPanel>
 
-                                <!-- Оставшиеся характеристики -->
-                                <Grid>
+                                <!-- Характеристики тарифа -->
+                                <Grid Margin="0,0,0,10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="2">
-                                        <TextBlock Text="Город: " FontSize="9" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
-                                        <TextBlock Text="{Binding PriceGorod}" FontSize="9" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
+                                        <TextBlock Text="Город: " FontSize="9" Foreground="#555" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding PriceGorod}" FontSize="10" Foreground="#333" VerticalAlignment="Center"/>
                                     </StackPanel>
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="2">
-                                        <TextBlock Text="Межгород: " FontSize="9" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
-                                        <TextBlock Text="{Binding PriceMejGorod}" FontSize="9" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
+                                        <TextBlock Text="Межгород: " FontSize="9" Foreground="#555" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding PriceMejGorod}" FontSize="10" Foreground="#333" VerticalAlignment="Center"/>
                                     </StackPanel>
                                     <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="2">
-                                        <TextBlock Text="Международный: " FontSize="9" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
-                                        <TextBlock Text="{Binding PriceMejNarod}" FontSize="9" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
+                                        <TextBlock Text="Международный: " FontSize="9" Foreground="#555" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding PriceMejNarod}" FontSize="10" Foreground="#333" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </Grid>
 
-                                <!-- Добавляем новые поля -->
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                                    <TextBlock Text="SMS/Month: " FontSize="12" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding SMS_Per_Month}" FontSize="14" VerticalAlignment="Center"/>
+                                <!-- Дополнительные поля -->
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+                                    <TextBlock Text="СМС/Месяц: " FontSize="14" Foreground="#555" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding SMS_Per_Month}" FontSize="16" Foreground="#333" VerticalAlignment="Center"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
-                                    <TextBlock Text="GB/Month: " FontSize="12" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding GB_Per_Month}" FontSize="14" VerticalAlignment="Center"/>
+                                    <TextBlock Text="ГБ/Месяц: " FontSize="14" Foreground="#555" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding GB_Per_Month}" FontSize="16" Foreground="#333" VerticalAlignment="Center"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
-                                    <TextBlock Text="Min/Month: " FontSize="12" VerticalAlignment="Center">
+                                    <TextBlock Text="Мин/Месяц: " FontSize="14" Foreground="#555" VerticalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="TextBlock">
                                                 <Style.Triggers>
@@ -79,7 +85,7 @@
                                             </Style>
                                         </TextBlock.Style>
                                     </TextBlock>
-                                    <TextBlock Text="{Binding Min_Per_Month}" FontSize="14" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Min_Per_Month}" FontSize="16" Foreground="#333" VerticalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="TextBlock">
                                                 <Style.Triggers>
@@ -97,6 +103,18 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        <Button Content="Выход в Главное Меню" Click="OnReturnToMainMenu" Margin="10" Width="152" BorderBrush="White" Background="White" FontFamily="Bahnschrift Light SemiCondensed" FontSize="16" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+
+        <!-- Кнопка выхода в главное меню -->
+        <Button Content="Выход в Главное Меню" 
+                Click="OnReturnToMainMenu" 
+                Margin="10" 
+                Width="200" 
+                Height="40"
+                Background="#E0E0E0" 
+                Foreground="#333" 
+                BorderBrush="#CCCCCC" 
+                FontWeight="Bold" 
+                VerticalAlignment="Bottom" 
+                HorizontalAlignment="Center"/>
     </Grid>
 </Window>

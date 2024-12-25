@@ -63,6 +63,48 @@ namespace WPF.ViewModels
             callTimer.Stop();
             TimeSpan callDuration = callTimer.Elapsed;
 
+            int totalSeconds = (int)callDuration.TotalSeconds;
+
+            int pricePerSecond = 0;
+
+            // Определяем стоимость секунды для выбранного типа звонка
+            switch (SelectedCallType.C__PK__Kod_Type_Of_Call)
+            {
+                case 1:
+                    pricePerSecond = (userTariff.PriceGorod ?? 0); // Переводим стоимость минуты в стоимость секунды
+                    break;
+                case 2:
+                    pricePerSecond = (userTariff.PriceMejGorod ?? 0);
+                    break;
+                case 3:
+                    pricePerSecond = (userTariff.PriceMejNarod ?? 0);
+                    break;
+            }
+
+            int costInRubles = 0;
+
+            if (totalSeconds > currentUser.Mins)
+            {
+                // Вычитаем доступные секунды
+                int usedSeconds = (int)currentUser.Mins;
+                currentUser.Mins = 0;
+
+                // Рассчитываем стоимость оставшихся секунд
+                int remainingSeconds = totalSeconds - usedSeconds;
+                costInRubles = remainingSeconds * pricePerSecond;
+
+                // Вычитаем стоимость из баланса пользователя
+                currentUser.Balance -= costInRubles;
+            }
+            else
+            {
+                // Вычитаем секунды из баланса
+                currentUser.Mins -= totalSeconds;
+            }
+
+            dbAccess.UpdateUserMins(currentUser.PhoneNumber, currentUser.Mins,currentUser.Balance); // Сохраняем изменения в БД
+            
+
             var call = new CallTable
             {
                 C__FK__Number_Sender = currentUser.PhoneNumber,

@@ -31,11 +31,11 @@ namespace WPF.ViewModels
             if (ValidateProfileDetails())
             {
                 dbAccess.UpdateUserProfile(currentUser.PhoneNumber, FullName, Login, Password);
-                MessageBox.Show("Profile updated successfully!");
+                MessageBox.Show("Профиль Обновлен!");
             }
             else
             {
-                MessageBox.Show("Invalid profile details or phone number already exists!");
+                MessageBox.Show("Не корректные данные!");
             }
         }
 

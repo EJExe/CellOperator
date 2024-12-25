@@ -131,14 +131,24 @@ public class SettingsViewModel : INotifyPropertyChanged
 
     private void StartCall()
     {
-        CallView callView = new CallView(currentUser, Application.Current.MainWindow);
-        callView.ShowDialog();
+        if ( currentUser.Mins > 0 || currentUser.Balance > 0)
+        {
+            CallView callView = new CallView(currentUser, Application.Current.MainWindow);
+            callView.ShowDialog();
+        }
+        else { MessageBox.Show("Не достаточно средств!", "Ошибка", MessageBoxButton.OK); }
     }
 
     private void CreateSMS()
     {
-        CreateSMSView createSMSView = new CreateSMSView(currentUser, Application.Current.MainWindow);
-        createSMSView.ShowDialog();
+        if ( currentUser.SMS > 0 )
+        {
+            currentUser.SMS -= 1;
+            CreateSMSView createSMSView = new CreateSMSView(currentUser, Application.Current.MainWindow);
+            dbAccess.UpdateUserSMS(currentUser.PhoneNumber, currentUser.SMS); // Сохраняем изменения в БД
+            createSMSView.ShowDialog();
+        }
+        else { MessageBox.Show("Упсс :/", "Ошибка", MessageBoxButton.OK); }
     }
 
     private void ReturnToMainMenu()

@@ -194,13 +194,13 @@ namespace WPF.ViewModels
         private void OpenTariffs(Window mainWindow)
         {
             TariffManagementView tariffManagementView = new TariffManagementView(currentUser.UserType.Value);
-            tariffManagementView.ShowDialog();
+            tariffManagementView.Show();
         }
 
         private void OpenUsers(Window mainWindow)
         {
             UserManagementView userManagementView = new UserManagementView();
-            userManagementView.ShowDialog();
+            userManagementView.Show();
         }
 
         private void ViewUsers()

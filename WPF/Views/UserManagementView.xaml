@@ -21,7 +21,7 @@
             <Button Content="Выход" Command="{Binding ExitCommand}" Margin="10" Width="100" Height="35"/>
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom" Orientation="Vertical" HorizontalAlignment="Right" Margin="0,0,20,150">
-            <TextBlock Text="Edit Selected User" FontSize="16" Margin="0,0,10,10"/>
+            <TextBlock Text="Пользователь" FontSize="16" Margin="0,0,10,10"/>
             <TextBlock Text="ФИО"/>
             <TextBox Text="{Binding SelectedUser.Name, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Номер"/>

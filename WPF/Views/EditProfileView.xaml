@@ -3,24 +3,48 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPF.Views"
         mc:Ignorable="d"
         Icon="/WPF;component/Images/ICON.png"
-        Title="Edit Profile" Height="300" Width="400">
-    <Grid>
-        <StackPanel Margin="20">
-            
-            <TextBlock Text="Full Name" Margin="0,0,0,10"/>
-            <TextBox Text="{Binding FullName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
-            
-            <TextBlock Text="Login" Margin="0,0,0,10"/>
-            <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
-            
-            <TextBlock Text="Password" Margin="0,0,0,10"/>
-            <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
-            
-            <Button Content="Confirm Edit" Click="OnConfirmEdit" Margin="0,0,0,10"/>
-            <Button Content="Return to Main Menu" Click="OnReturnToMainMenu"/>
-        </StackPanel>
+        Title="Редактирование профиля"
+        Height="411" Width="450"
+        WindowStartupLocation="CenterScreen"
+        Background="#F7F7F7">
+    <Grid Margin="10">
+        <Border Background="White" CornerRadius="10" Padding="20" BorderBrush="#E0E0E0" BorderThickness="1">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Редактирование профиля" FontSize="18" FontWeight="Bold" Foreground="#333" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+                <!-- Full Name -->
+                <TextBlock Text="Полное имя" FontWeight="Bold" Foreground="#555" Margin="0,0,0,5"/>
+                <TextBox Text="{Binding FullName, UpdateSourceTrigger=PropertyChanged}" 
+                         Height="30" Margin="0,0,0,15" BorderBrush="#CCCCCC" BorderThickness="1" Padding="5"/>
+
+                <!-- Login -->
+                <TextBlock Text="Логин" FontWeight="Bold" Foreground="#555" Margin="0,0,0,5"/>
+                <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" 
+                         Height="30" Margin="0,0,0,15" BorderBrush="#CCCCCC" BorderThickness="1" Padding="5"/>
+
+                <!-- Password -->
+                <TextBlock Text="Пароль" FontWeight="Bold" Foreground="#555" Margin="0,0,0,5"/>
+                <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" 
+                         Height="30" Margin="0,0,0,15" BorderBrush="#CCCCCC" BorderThickness="1" Padding="5"/>
+
+                <!-- Buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <!-- Confirm Button -->
+                    <Button Content="Подтвердить" Width="150" Height="40"
+                            Background="#007BFF" Foreground="White" BorderBrush="#0056b3" 
+                            FontWeight="Bold" Margin="5,0" Click="OnConfirmEdit" />
+
+                    <!-- Return Button -->
+                    <Button Content="Вернуться в Меню" Width="150" Height="40"
+                            Background="#E0E0E0" Foreground="#333" BorderBrush="#CCCCCC" 
+                            FontWeight="Bold" Margin="5,0" Click="OnReturnToMainMenu" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

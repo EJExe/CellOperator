@@ -13,7 +13,7 @@
         Icon="/WPF;component/Images/ICON.png"
         Title="LOGIN FORM"  MinWidth="500" MinHeight="728">
 
-    <Grid Background="Azure">
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="2.00*" ></RowDefinition>
             <RowDefinition Height="0.75*"></RowDefinition>
